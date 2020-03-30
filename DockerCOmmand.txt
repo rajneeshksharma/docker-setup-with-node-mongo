@@ -1,0 +1,32 @@
+docker pull image_name:tag
+docker run image_name
+docker ps
+docker ps --all
+docker start ps-id
+docker exec -it ps-id bash
+ctrl + d
+docker stop ps-id
+docker kill ps-id
+
+Custom Image for docker
+File NAME : Dockerfile  (Core file for docker)
+step 1 (Need base OS image)
+FROM alpine (small linux distribution)
+
+step 2 (Need a software)
+RUN apk binutils
+
+step 2.5 (config software)
+VOLUME ["/data/db"]
+WORKDIR  /data
+EXPOSE port
+
+step 3 (Set default command)
+CMD ["npm" , "install"]
+
+docker build .  
+docker build -t rkrajneesh/image_name:latest (v1, v2)
+docker run -p 8000:8000 image_name
+       (my port : docker port)
+
+sudo docker-compose up --build 
